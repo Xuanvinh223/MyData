@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="Assignment_FpolyOE" transaction-type="RESOURCE_LOCAL">
+		<class>com.poly.Model.Favorite</class>
+		<class>com.poly.Model.Report</class>
+		<class>com.poly.Model.Share</class>
+		<class>com.poly.Model.User</class>
+		<class>com.poly.Model.Video</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=FpolyOE"/>
+			<property name="javax.persistence.jdbc.user" value="sa"/>
+			<property name="javax.persistence.jdbc.password" value="sa"/>
+			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+		</properties>
+	</persistence-unit>
+</persistence>

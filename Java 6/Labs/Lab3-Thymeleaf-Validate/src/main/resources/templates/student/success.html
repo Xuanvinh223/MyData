@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace= "~{layout/layout.html :: dynamic(~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Result Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Result Page</h1>
+        <div class="row">
+            <div class="col">
+                <p>Email: <span th:text="${student.email}"></span></p>
+                <p>Full Name: <span th:text="${student.fullName}"></span></p>
+                <p>Marks: <span th:text="${student.marks}"></span></p>
+                <p>Gender: <span th:text="${student.gender ? 'Male' : 'Female'}"></span></p>
+                <p>Country: <span th:text="${student.country}"></span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

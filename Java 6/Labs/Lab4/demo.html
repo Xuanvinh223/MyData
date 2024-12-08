@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.9/angular.min.js"></script>
+
+</head>
+
+<body ng-app="app" ng-controller="ctrl">
+    <form>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ng-model="form.email"  required><br>
+
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" ng-model="form.fullname" required><br>
+
+        <label for="marks">Marks:</label>
+        <input type="number" id="marks" name="marks" ng-model="form.marks" required><br>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" ng-model="form.gender" ng-value="true">
+        <label for="male">Male</label>
+        <input type="radio" ng-model="form.gender" ng-value="false">
+        <label for="female">Female</label><br>
+
+        <label for="country">Country:</label>
+        <select ng-model="form.country" id="country" name="country" required>
+            <option value="">Select a country</option>
+            <option value="VN">Việt Nam</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+        </select><br>
+    </form>
+    <button type="button" ng-click="Create()">Create</button>
+    <button type="button" ng-click="Update()">Update</button>
+    <button type="button" ng-click="Delete(key)">Delete</button>
+    <button type="button" ng-click="Reset()">Reset</button>
+    <table border="1">
+        <tr>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Marks</th>
+            <th>Gender</th>
+            <th>Country</th>
+            <th>Actions</th>
+        </tr>
+        <tr ng-repeat="(key, stu) in items">
+            <td>{{stu.email}}</td>
+            <td>{{stu.fullname}}</td>
+            <td>{{stu.marks}}</td>
+            <td>{{stu.gender ? 'Male' : 'Female'}}</td>
+            <td>{{stu.country}}</td>
+            <td>
+                <button type="button" ng-click="Edit(key)">Edit</button>
+                <button type="button" ng-click="Delete(key)">Delete</button>
+            </td>
+        </tr>
+        <!-- Add more rows for other students -->
+    </table>
+    <script src="demoController.js"></script>
+</body>
+
+</html>

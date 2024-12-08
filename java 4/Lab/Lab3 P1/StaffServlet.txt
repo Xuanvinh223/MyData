@@ -1,0 +1,40 @@
+@WebServlet("/staff")
+public class StaffServlet extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/lab3/themnhanvien.jsp").forward(req, resp);
+		super.doGet(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		try {
+			// Định dạng thời gian nhập vào
+			DateConverter dtc = new DateConverter();
+			dtc.setPattern("mm/dd/yyyy");
+			ConvertUtils.register(dtc, Date.class);
+			Staff staff = new Staff();
+
+			// Đọc tham số vào các thuộc tính của bean staff
+			BeanUtils.populate(staff, req.getParameterMap());
+
+			// Chia sẻ với result.jsp
+			req.setAttribute("bean", staff);
+
+			System.out.println(staff.getFullname());
+			System.out.println(staff.getBirthday());
+			System.out.println(staff.getDateBirthdayStaff());
+			System.out.println(staff.isGender());
+			System.out.println(staff.getCountry());
+			System.out.println(staff.isMarried());
+			System.out.println(staff.getHobbies());
+			System.out.println(staff.getNotes());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		req.getRequestDispatcher("/lab3/ketqua-themnv.jsp").forward(req, resp);
+		super.doPost(req, resp);
+	}
+}

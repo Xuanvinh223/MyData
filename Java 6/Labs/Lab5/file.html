@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title Page</title>
+    <!-- Thêm thư viện AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="ctrl">
+    <div class="container">
+        <h3>RESTful - File Manager</h3>
+       <label for="">
+        Upload file : 
+        <input type="file" accept="image/*" multiple onchange="angular.element(this).scope().upload(this.files)">
+       </label>
+       <hr>
+       <label for="" ng-repeat="filename in filenames" title="Double click to delete">
+        <img ng-src="{{url(filename)}}" ng-dblclick="delete(filename)" width="50px" alt="">
+       </label>
+    </div>
+
+    <script src="file-ctrl.js"></script>
+</body>
+
+</html>

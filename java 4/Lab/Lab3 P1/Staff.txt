@@ -1,0 +1,38 @@
+public class Staff {
+	private String fullname;
+	private Date birthday;
+	private boolean gender;
+	private String country;
+	private boolean married;
+	private String[] hobbies;
+	private String notes;
+
+	public String getDateBirthdayStaff() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		return formatter.format(birthday);
+	}
+
+	public String getHobbiesStaff() {
+		String str = "";
+		for (String hobby : hobbies) {
+			switch (hobby) {
+			case "R":
+				str += "<i>+ Đọc sách </i>";
+				break;
+			case "T":
+				str += "<i>+ Du lịch </i>";
+				break;
+			case "M":
+				str += "<i>+ Âm nhạc </i>";
+				break;
+			case "O":
+				str += "<i>+ Khác </i>";
+				break;
+			default:
+				str += " ";
+			}
+		}
+		return str;
+	}
+	//Setter and Getter
+}

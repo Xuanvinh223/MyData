@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Edit Form -->
+    <form action="/edit" method="post">
+      <h3>Edit Item</h3>
+      <div class="form-group">
+        <label for="id">ID:</label>
+        <input type="number" class="form-control" id="id" name="id" min="1" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="myComboBox">Chọn một tùy chọn:</label>
+        <select class="form-control" id="myComboBox">
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+          <option>Option 4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="myFileInput">Chọn một tệp tin:</label>
+        <input type="file" id="myFileInput">
+        <div class="checkbox-inline">
+          <label>
+            <input type="checkbox" value="">
+            Tùy chọn 1
+          </label>
+        </div>
+        <div class="checkbox-inline">
+          <label>
+            <input type="checkbox" value="">
+            Tùy chọn 2
+          </label>
+        </div>
+        <div class="checkbox-inline">
+          <label>
+            <input type="checkbox" value="">
+            Tùy chọn 3
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Item</button>
+    </form>
+  </div>
+
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+@MultipartConfig
+@WebServlet("/upload")
+public class UploadServlet extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/lab3/form.jsp").forward(req, resp);
+		super.doGet(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		File dir = new File(req.getServletContext().getRealPath("/files"));
+		System.out.println(dir);
+		//Kiểm tra đường dẫn có tồn tại hay chưa
+		if (!dir.exists()) {
+			dir.mkdirs(); // Tạo đường dẫn
+		}
+		// lưu các file upload vào thư mục files
+		Part photo = req.getPart("photo_file"); // file hình
+		File photoFile = new File(dir, photo.getSubmittedFileName());
+		photo.write(photoFile.getAbsolutePath());
+
+		Part doc = req.getPart("doc_file"); // file tài liệu
+		File docFile = new File(dir, doc.getSubmittedFileName());
+		doc.write(docFile.getAbsolutePath());
+
+		// chia sẻ cho result.jsp để hiển thị
+		req.setAttribute("img", photoFile);
+		req.setAttribute("doc", docFile);
+
+		req.getRequestDispatcher("/lab3/result.jsp").forward(req, resp);
+		super.doPost(req, resp);
+	}
+}

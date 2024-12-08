@@ -1,0 +1,16 @@
+public class Item {
+	String name;
+	String image;
+	double price;
+	double discount;
+	Date date = new Date();
+
+	public Item(String name, String image, double price, double discount) {
+		super();
+		this.name = name;
+		this.image = image;
+		this.price = price;
+		this.discount = discount;
+	}
+	//Getter, Setter
+}

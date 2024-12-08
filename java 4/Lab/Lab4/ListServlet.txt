@@ -1,0 +1,16 @@
+@WebServlet("/list")
+public class ListServlet extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		List<Item> items = Arrays.asList(new Item[] { 
+				new Item("Nokia 2020", "nokia.png", 500, 0.1),
+				new Item("Samsung Xyz", "samsung.png", 700, 0.15), 
+				new Item("iPhone Xy", "iphone.png", 900, 0.25),
+				new Item("Sony Erricson", "sony.png", 55, 0.3), 
+				new Item("Seamen", "seamen.png", 70, 0.5),
+				new Item("Oppo 2021", "oppo.png", 200, 0.2) });
+		req.setAttribute("items", items);
+		req.getRequestDispatcher("/lab4/bai4/list.jsp").forward(req, resp);
+		super.doGet(req, resp);
+	}
+}

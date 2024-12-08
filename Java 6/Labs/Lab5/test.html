@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Danh sách sản phẩm</title>
+  <!-- Đường dẫn đến các tệp tin CSS và JavaScript của Bootstrap và jQuery -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .product-info {
+      background-color: #f5f5f5;
+      padding: 10px;
+    }
+    .product-info form {
+      margin-top: 20px;
+    }
+    .product-image {
+      display: none;
+      max-width: 200px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Danh sách sản phẩm</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Mã Sản Phẩm</th>
+          <th>Tên Sản Phẩm</th>
+          <th>Giá Sản Phẩm</th>
+          <th>Số Lượng (Trong Kho)</th>
+          <th>Mô Tả</th>
+          <th>Chọn Hình</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-toggle="collapse" data-target="#productInfo1">
+          <td>SP001</td>
+          <td>Sản phẩm 1</td>
+          <td>100.000 đồng</td>
+          <td>50</td>
+          <td>Mô tả sản phẩm 1</td>
+          <td>
+            <input type="file" id="productImage1" onchange="displayImage(event, 'productImage1')">
+            <img id="previewImage1" class="product-image" src="#" alt="Preview Image">
+          </td>
+        </tr>
+        <tr id="productInfo1" class="collapse">
+          <td colspan="6" class="product-info">
+            <h4>Thông tin sản phẩm</h4>
+            <p>Mã Sản Phẩm: SP001</p>
+            <p>Tên Sản Phẩm: Sản phẩm 1</p>
+            <p>Giá Sản Phẩm: 100.000 đồng</p>
+            <p>Số Lượng (Trong Kho): 50</p>
+            <p>Mô Tả: Mô tả sản phẩm 1</p>
+            <form>
+              <!-- Thêm các trường thông tin sản phẩm vào đây -->
+              <div class="form-group">
+                <label for="productQuantity">Số lượng:</label>
+                <input type="number" class="form-control" id="productQuantity1" name="productQuantity" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+            </form>
+          </td>
+        </tr>
+        <tr data-toggle="collapse" data-target="#productInfo2">
+          <td>SP002</td>
+          <td>Sản phẩm 2</td>
+          <td>200.000 đồng</td>
+          <td>30</td>
+          <td>Mô tả sản phẩm 2</td>
+          <td>
+            <input type="file" id="productImage2" onchange="displayImage(event, 'productImage2')">
+            <img id="previewImage2" class="product-image" src="#" alt="Preview Image">
+          </td>
+        </tr>
+        <tr id="productInfo2" class="collapse">
+          <td colspan="6" class="product-info">
+            <h4>Thông tin sản phẩm</h4>
+            <p>Mã Sản Phẩm: SP002</p>
+            <p>Tên Sản Phẩm: Sản phẩm 2</p>
+            <p>Giá Sản Phẩm: 200.000 đồng</p>
+            <p>Số Lượng (Trong Kho): 30</p>
+            <p>Mô Tả: Mô tả sản phẩm 2</p>
+            <form>
+              <!-- Thêm các trường thông tin sản phẩm vào đây -->
+              <div class="form-group">
+                <label for="productQuantity">Số lượng:</label>
+                <input type="number" class="form-control" id="productQuantity2" name="productQuantity" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+            </form>
+          </td>
+        </tr>
+        <!-- Thêm các dòng sản phẩm khác tương tự ở đây -->
+      </tbody>
+    </table>
+  </div>
+  <script>
+    function displayImage(event, imageId) {
+      var reader = new FileReader();
+      reader.onload = function() {
+        var previewImage = document.getElementById('preview' + imageId);
+        previewImage.src = reader.result;
+        previewImage.style.display = 'block';
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+    
+    $(document).ready(function() {
+      $('tr[data-toggle="collapse"]').click(function() {
+        var target = $(this).data('target');
+        $(target).collapse('toggle');
+      });
+    });
+  </script>
+</body>
+</html>
+
+

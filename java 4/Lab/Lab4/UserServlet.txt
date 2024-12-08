@@ -1,0 +1,15 @@
+@WebServlet("/user")
+public class UserServlet extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		List<User> users = Arrays.asList(new User[] { 
+				new User("Username 1", "Password 1", true),
+				new User("Username 2", "Password 2", false), 
+				new User("Username 3", "Password 3", true) });
+		req.setAttribute("message", "Quản lý người sử dụng!");
+		req.setAttribute("form", users.get(0));
+		req.setAttribute("items", users);
+		req.getRequestDispatcher("lab4/bai2/index.jsp").forward(req, resp);
+		super.doGet(req, resp);
+	}
+}

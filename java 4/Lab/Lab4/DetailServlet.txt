@@ -1,0 +1,10 @@
+@WebServlet("/detail")
+public class DetailServlet extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Item item = new Item("Nokia 2020", "nokia.png", 500000, 0.1);
+		req.setAttribute("item", item);
+		req.getRequestDispatcher("/lab4/bai3/detail.jsp").forward(req, resp);
+		super.doGet(req, resp);
+	}
+}
