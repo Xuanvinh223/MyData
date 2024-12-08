@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReactJS</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17.0.0/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.production.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script>
+      // DOM h1
+      var h1DOM = document.createElement("h1");
+      h1DOM.title = "Hello";
+      h1DOM.className = "heading";
+      h1DOM.innerText = "Hello ReactJS";
+      document.body.appendChild(h1DOM);
+      //   DOM ul li
+      var ul = document.createElement("ul");
+      var li1 = document.createElement("li");
+      var li2 = document.createElement("li");
+
+      li1.innerText = "Javasript";
+      li2.innerText = "ReactJS";
+      ul.appendChild(li1);
+      ul.appendChild(li2);
+      document.body.appendChild(ul);
+      // React h1
+      var h1React = React.createElement(
+        "h1",
+        {
+          title: "Hello",
+          className: "heading",
+        },
+        "Hello ReactJS"
+      );
+      //   react ul li
+      var ulReact = React.createElement(
+        "ul",
+        null,
+        React.createElement("li", null, "Javascrpit"),
+        React.createElement("li", null, "reactjs")
+      );
+
+      var div = React.createElement(
+        "div",
+        null,
+        React.createElement(
+          "h2",
+          {
+            title: "Học react tại F8",
+          },
+          "Học ReactJS"
+        ),
+        React.createElement("p", null, "Học ReactJS từ cơ bản đến nâng cao")
+      );
+      var root = document.querySelector('#root');
+      ReactDOM.render(div,root)
+    </script>
+  </body>
+</html>
